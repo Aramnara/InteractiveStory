@@ -33,11 +33,17 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        nameField.setText("");
+    }
+
     private void startStory(String name) {
         Intent intent = new Intent(this, StoryActivity.class);
         Resources resources = getResources();
         String key = resources.getString(R.string.key_name);
-        intent.putExtra("key", name);
+        intent.putExtra("name", name);
         startActivity(intent);
     }
 }
